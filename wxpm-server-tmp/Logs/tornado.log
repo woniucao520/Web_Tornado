@@ -1,0 +1,754 @@
+2017-11-13 17:39:00 - tornado.application - ERROR - Uncaught exception POST /user/login (::1)
+HTTPServerRequest(protocol='http', host='localhost:8887', method='POST', uri='/user/login', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:8887', 'Connection': 'keep-alive', 'Content-Length': '36', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'Origin': 'http://localhost:8887', 'X-Requested-With': 'XMLHttpRequest', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Referer': 'http://localhost:8887/', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'Phpstorm-f0a15574=359b667f-388b-4d7f-8ac6-3a6aab9389f5; Pycharm-df13e51b=fd99ae70-7d93-4d2d-9f25-d9a52adba1ad; referrer_id="2|1:0|10:1510565697|11:referrer_id|4:MA==|629f439c4f0699bd9ef05f9f8de7e175edc8878b7a1ebd34e58258549e62726f"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'wx_user.bonus_ratio' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1511, in _execute
+    result = yield result
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1055, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/types.py", line 248, in wrapped
+    coro = func(*args, **kwargs)
+  File "WebServer.py", line 201, in post
+    user = UserHandler.login(login_name, login_pass)
+  File "/Users/lu/PycharmProjects/wxpm-server/Commands/UserHandler.py", line 27, in login
+    User.deleted==0).one_or_none()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2784, in one_or_none
+    ret = list(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2855, in __iter__
+    return self._execute_and_instances(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2878, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+sqlalchemy.exc.ProgrammingError: (mysql.connector.errors.ProgrammingError) 1054 (42S22): Unknown column 'wx_user.bonus_ratio' in 'field list' [SQL: 'SELECT wx_user.id AS wx_user_id, wx_user.login_name AS wx_user_login_name, wx_user.login_pass AS wx_user_login_pass, wx_user.display_name AS wx_user_display_name, wx_user.real_name AS wx_user_real_name, wx_user.id_no AS wx_user_id_no, wx_user.mobile AS wx_user_mobile, wx_user.status AS wx_user_status, wx_user.section_no AS wx_user_section_no, wx_user.referrer_id AS wx_user_referrer_id, wx_user.bonus_ratio AS wx_user_bonus_ratio, wx_user.deleted AS wx_user_deleted, wx_user.created_at AS wx_user_created_at, wx_user.last_updated AS wx_user_last_updated \nFROM wx_user \nWHERE wx_user.login_name = %(login_name_1)s AND wx_user.login_pass = %(login_pass_1)s AND wx_user.deleted = %(deleted_1)s'] [parameters: {'login_name_1': 'luzhang', 'login_pass_1': 'd5a99288b270b6c1989975fdb352425913c45e1640b35473ef9370fc', 'deleted_1': 0}]
+2017-11-13 17:39:02 - tornado.application - ERROR - Uncaught exception POST /user/login (::1)
+HTTPServerRequest(protocol='http', host='localhost:8887', method='POST', uri='/user/login', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:8887', 'Connection': 'keep-alive', 'Content-Length': '36', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'Origin': 'http://localhost:8887', 'X-Requested-With': 'XMLHttpRequest', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Referer': 'http://localhost:8887/', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'Phpstorm-f0a15574=359b667f-388b-4d7f-8ac6-3a6aab9389f5; Pycharm-df13e51b=fd99ae70-7d93-4d2d-9f25-d9a52adba1ad; referrer_id="2|1:0|10:1510565697|11:referrer_id|4:MA==|629f439c4f0699bd9ef05f9f8de7e175edc8878b7a1ebd34e58258549e62726f"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'wx_user.bonus_ratio' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1511, in _execute
+    result = yield result
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1055, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/types.py", line 248, in wrapped
+    coro = func(*args, **kwargs)
+  File "WebServer.py", line 201, in post
+    user = UserHandler.login(login_name, login_pass)
+  File "/Users/lu/PycharmProjects/wxpm-server/Commands/UserHandler.py", line 27, in login
+    User.deleted==0).one_or_none()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2784, in one_or_none
+    ret = list(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2855, in __iter__
+    return self._execute_and_instances(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2878, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+sqlalchemy.exc.ProgrammingError: (mysql.connector.errors.ProgrammingError) 1054 (42S22): Unknown column 'wx_user.bonus_ratio' in 'field list' [SQL: 'SELECT wx_user.id AS wx_user_id, wx_user.login_name AS wx_user_login_name, wx_user.login_pass AS wx_user_login_pass, wx_user.display_name AS wx_user_display_name, wx_user.real_name AS wx_user_real_name, wx_user.id_no AS wx_user_id_no, wx_user.mobile AS wx_user_mobile, wx_user.status AS wx_user_status, wx_user.section_no AS wx_user_section_no, wx_user.referrer_id AS wx_user_referrer_id, wx_user.bonus_ratio AS wx_user_bonus_ratio, wx_user.deleted AS wx_user_deleted, wx_user.created_at AS wx_user_created_at, wx_user.last_updated AS wx_user_last_updated \nFROM wx_user \nWHERE wx_user.login_name = %(login_name_1)s AND wx_user.login_pass = %(login_pass_1)s AND wx_user.deleted = %(deleted_1)s'] [parameters: {'login_name_1': 'luzhang', 'login_pass_1': 'd5a99288b270b6c1989975fdb352425913c45e1640b35473ef9370fc', 'deleted_1': 0}]
+2017-11-13 17:39:02 - tornado.application - ERROR - Uncaught exception POST /user/login (::1)
+HTTPServerRequest(protocol='http', host='localhost:8887', method='POST', uri='/user/login', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:8887', 'Connection': 'keep-alive', 'Content-Length': '36', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'Origin': 'http://localhost:8887', 'X-Requested-With': 'XMLHttpRequest', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Referer': 'http://localhost:8887/', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'Phpstorm-f0a15574=359b667f-388b-4d7f-8ac6-3a6aab9389f5; Pycharm-df13e51b=fd99ae70-7d93-4d2d-9f25-d9a52adba1ad; referrer_id="2|1:0|10:1510565697|11:referrer_id|4:MA==|629f439c4f0699bd9ef05f9f8de7e175edc8878b7a1ebd34e58258549e62726f"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'wx_user.bonus_ratio' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1511, in _execute
+    result = yield result
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1055, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/types.py", line 248, in wrapped
+    coro = func(*args, **kwargs)
+  File "WebServer.py", line 201, in post
+    user = UserHandler.login(login_name, login_pass)
+  File "/Users/lu/PycharmProjects/wxpm-server/Commands/UserHandler.py", line 27, in login
+    User.deleted==0).one_or_none()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2784, in one_or_none
+    ret = list(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2855, in __iter__
+    return self._execute_and_instances(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2878, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+sqlalchemy.exc.ProgrammingError: (mysql.connector.errors.ProgrammingError) 1054 (42S22): Unknown column 'wx_user.bonus_ratio' in 'field list' [SQL: 'SELECT wx_user.id AS wx_user_id, wx_user.login_name AS wx_user_login_name, wx_user.login_pass AS wx_user_login_pass, wx_user.display_name AS wx_user_display_name, wx_user.real_name AS wx_user_real_name, wx_user.id_no AS wx_user_id_no, wx_user.mobile AS wx_user_mobile, wx_user.status AS wx_user_status, wx_user.section_no AS wx_user_section_no, wx_user.referrer_id AS wx_user_referrer_id, wx_user.bonus_ratio AS wx_user_bonus_ratio, wx_user.deleted AS wx_user_deleted, wx_user.created_at AS wx_user_created_at, wx_user.last_updated AS wx_user_last_updated \nFROM wx_user \nWHERE wx_user.login_name = %(login_name_1)s AND wx_user.login_pass = %(login_pass_1)s AND wx_user.deleted = %(deleted_1)s'] [parameters: {'login_name_1': 'luzhang', 'login_pass_1': 'd5a99288b270b6c1989975fdb352425913c45e1640b35473ef9370fc', 'deleted_1': 0}]
+2017-11-13 17:39:02 - tornado.application - ERROR - Uncaught exception POST /user/login (::1)
+HTTPServerRequest(protocol='http', host='localhost:8887', method='POST', uri='/user/login', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:8887', 'Connection': 'keep-alive', 'Content-Length': '36', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'Origin': 'http://localhost:8887', 'X-Requested-With': 'XMLHttpRequest', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Referer': 'http://localhost:8887/', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'Phpstorm-f0a15574=359b667f-388b-4d7f-8ac6-3a6aab9389f5; Pycharm-df13e51b=fd99ae70-7d93-4d2d-9f25-d9a52adba1ad; referrer_id="2|1:0|10:1510565697|11:referrer_id|4:MA==|629f439c4f0699bd9ef05f9f8de7e175edc8878b7a1ebd34e58258549e62726f"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'wx_user.bonus_ratio' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1511, in _execute
+    result = yield result
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1055, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/types.py", line 248, in wrapped
+    coro = func(*args, **kwargs)
+  File "WebServer.py", line 201, in post
+    user = UserHandler.login(login_name, login_pass)
+  File "/Users/lu/PycharmProjects/wxpm-server/Commands/UserHandler.py", line 27, in login
+    User.deleted==0).one_or_none()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2784, in one_or_none
+    ret = list(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2855, in __iter__
+    return self._execute_and_instances(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2878, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+sqlalchemy.exc.ProgrammingError: (mysql.connector.errors.ProgrammingError) 1054 (42S22): Unknown column 'wx_user.bonus_ratio' in 'field list' [SQL: 'SELECT wx_user.id AS wx_user_id, wx_user.login_name AS wx_user_login_name, wx_user.login_pass AS wx_user_login_pass, wx_user.display_name AS wx_user_display_name, wx_user.real_name AS wx_user_real_name, wx_user.id_no AS wx_user_id_no, wx_user.mobile AS wx_user_mobile, wx_user.status AS wx_user_status, wx_user.section_no AS wx_user_section_no, wx_user.referrer_id AS wx_user_referrer_id, wx_user.bonus_ratio AS wx_user_bonus_ratio, wx_user.deleted AS wx_user_deleted, wx_user.created_at AS wx_user_created_at, wx_user.last_updated AS wx_user_last_updated \nFROM wx_user \nWHERE wx_user.login_name = %(login_name_1)s AND wx_user.login_pass = %(login_pass_1)s AND wx_user.deleted = %(deleted_1)s'] [parameters: {'login_name_1': 'luzhang', 'login_pass_1': 'd5a99288b270b6c1989975fdb352425913c45e1640b35473ef9370fc', 'deleted_1': 0}]
+2017-11-13 17:39:05 - tornado.application - ERROR - Uncaught exception POST /user/login (::1)
+HTTPServerRequest(protocol='http', host='localhost:8887', method='POST', uri='/user/login', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:8887', 'Connection': 'keep-alive', 'Content-Length': '36', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'Origin': 'http://localhost:8887', 'X-Requested-With': 'XMLHttpRequest', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Referer': 'http://localhost:8887/', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'Phpstorm-f0a15574=359b667f-388b-4d7f-8ac6-3a6aab9389f5; Pycharm-df13e51b=fd99ae70-7d93-4d2d-9f25-d9a52adba1ad; referrer_id="2|1:0|10:1510565697|11:referrer_id|4:MA==|629f439c4f0699bd9ef05f9f8de7e175edc8878b7a1ebd34e58258549e62726f"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'wx_user.bonus_ratio' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1511, in _execute
+    result = yield result
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1055, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/types.py", line 248, in wrapped
+    coro = func(*args, **kwargs)
+  File "WebServer.py", line 201, in post
+    user = UserHandler.login(login_name, login_pass)
+  File "/Users/lu/PycharmProjects/wxpm-server/Commands/UserHandler.py", line 27, in login
+    User.deleted==0).one_or_none()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2784, in one_or_none
+    ret = list(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2855, in __iter__
+    return self._execute_and_instances(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2878, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+sqlalchemy.exc.ProgrammingError: (mysql.connector.errors.ProgrammingError) 1054 (42S22): Unknown column 'wx_user.bonus_ratio' in 'field list' [SQL: 'SELECT wx_user.id AS wx_user_id, wx_user.login_name AS wx_user_login_name, wx_user.login_pass AS wx_user_login_pass, wx_user.display_name AS wx_user_display_name, wx_user.real_name AS wx_user_real_name, wx_user.id_no AS wx_user_id_no, wx_user.mobile AS wx_user_mobile, wx_user.status AS wx_user_status, wx_user.section_no AS wx_user_section_no, wx_user.referrer_id AS wx_user_referrer_id, wx_user.bonus_ratio AS wx_user_bonus_ratio, wx_user.deleted AS wx_user_deleted, wx_user.created_at AS wx_user_created_at, wx_user.last_updated AS wx_user_last_updated \nFROM wx_user \nWHERE wx_user.login_name = %(login_name_1)s AND wx_user.login_pass = %(login_pass_1)s AND wx_user.deleted = %(deleted_1)s'] [parameters: {'login_name_1': 'luzhang', 'login_pass_1': 'd5a99288b270b6c1989975fdb352425913c45e1640b35473ef9370fc', 'deleted_1': 0}]
+2017-11-13 17:39:26 - tornado.application - ERROR - Uncaught exception POST /user/login (::1)
+HTTPServerRequest(protocol='http', host='localhost:8887', method='POST', uri='/user/login', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:8887', 'Connection': 'keep-alive', 'Content-Length': '36', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'Origin': 'http://localhost:8887', 'X-Requested-With': 'XMLHttpRequest', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Referer': 'http://localhost:8887/', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'Phpstorm-f0a15574=359b667f-388b-4d7f-8ac6-3a6aab9389f5; Pycharm-df13e51b=fd99ae70-7d93-4d2d-9f25-d9a52adba1ad; referrer_id="2|1:0|10:1510565697|11:referrer_id|4:MA==|629f439c4f0699bd9ef05f9f8de7e175edc8878b7a1ebd34e58258549e62726f"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'wx_user.bonus_ratio' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1511, in _execute
+    result = yield result
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1055, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/types.py", line 248, in wrapped
+    coro = func(*args, **kwargs)
+  File "WebServer.py", line 201, in post
+    user = UserHandler.login(login_name, login_pass)
+  File "/Users/lu/PycharmProjects/wxpm-server/Commands/UserHandler.py", line 27, in login
+    User.deleted==0).one_or_none()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2784, in one_or_none
+    ret = list(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2855, in __iter__
+    return self._execute_and_instances(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2878, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+sqlalchemy.exc.ProgrammingError: (mysql.connector.errors.ProgrammingError) 1054 (42S22): Unknown column 'wx_user.bonus_ratio' in 'field list' [SQL: 'SELECT wx_user.id AS wx_user_id, wx_user.login_name AS wx_user_login_name, wx_user.login_pass AS wx_user_login_pass, wx_user.display_name AS wx_user_display_name, wx_user.real_name AS wx_user_real_name, wx_user.id_no AS wx_user_id_no, wx_user.mobile AS wx_user_mobile, wx_user.status AS wx_user_status, wx_user.section_no AS wx_user_section_no, wx_user.referrer_id AS wx_user_referrer_id, wx_user.bonus_ratio AS wx_user_bonus_ratio, wx_user.deleted AS wx_user_deleted, wx_user.created_at AS wx_user_created_at, wx_user.last_updated AS wx_user_last_updated \nFROM wx_user \nWHERE wx_user.login_name = %(login_name_1)s AND wx_user.login_pass = %(login_pass_1)s AND wx_user.deleted = %(deleted_1)s'] [parameters: {'login_name_1': 'luzhang', 'login_pass_1': 'd5a99288b270b6c1989975fdb352425913c45e1640b35473ef9370fc', 'deleted_1': 0}]
+2017-11-13 17:39:27 - tornado.application - ERROR - Uncaught exception POST /user/login (::1)
+HTTPServerRequest(protocol='http', host='localhost:8887', method='POST', uri='/user/login', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:8887', 'Connection': 'keep-alive', 'Content-Length': '36', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'Origin': 'http://localhost:8887', 'X-Requested-With': 'XMLHttpRequest', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Referer': 'http://localhost:8887/', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'Phpstorm-f0a15574=359b667f-388b-4d7f-8ac6-3a6aab9389f5; Pycharm-df13e51b=fd99ae70-7d93-4d2d-9f25-d9a52adba1ad; referrer_id="2|1:0|10:1510565697|11:referrer_id|4:MA==|629f439c4f0699bd9ef05f9f8de7e175edc8878b7a1ebd34e58258549e62726f"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'wx_user.bonus_ratio' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1511, in _execute
+    result = yield result
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1055, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/types.py", line 248, in wrapped
+    coro = func(*args, **kwargs)
+  File "WebServer.py", line 201, in post
+    user = UserHandler.login(login_name, login_pass)
+  File "/Users/lu/PycharmProjects/wxpm-server/Commands/UserHandler.py", line 27, in login
+    User.deleted==0).one_or_none()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2784, in one_or_none
+    ret = list(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2855, in __iter__
+    return self._execute_and_instances(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2878, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+sqlalchemy.exc.ProgrammingError: (mysql.connector.errors.ProgrammingError) 1054 (42S22): Unknown column 'wx_user.bonus_ratio' in 'field list' [SQL: 'SELECT wx_user.id AS wx_user_id, wx_user.login_name AS wx_user_login_name, wx_user.login_pass AS wx_user_login_pass, wx_user.display_name AS wx_user_display_name, wx_user.real_name AS wx_user_real_name, wx_user.id_no AS wx_user_id_no, wx_user.mobile AS wx_user_mobile, wx_user.status AS wx_user_status, wx_user.section_no AS wx_user_section_no, wx_user.referrer_id AS wx_user_referrer_id, wx_user.bonus_ratio AS wx_user_bonus_ratio, wx_user.deleted AS wx_user_deleted, wx_user.created_at AS wx_user_created_at, wx_user.last_updated AS wx_user_last_updated \nFROM wx_user \nWHERE wx_user.login_name = %(login_name_1)s AND wx_user.login_pass = %(login_pass_1)s AND wx_user.deleted = %(deleted_1)s'] [parameters: {'login_name_1': 'luzhang', 'login_pass_1': 'd5a99288b270b6c1989975fdb352425913c45e1640b35473ef9370fc', 'deleted_1': 0}]
+2017-11-13 17:39:27 - tornado.application - ERROR - Uncaught exception POST /user/login (::1)
+HTTPServerRequest(protocol='http', host='localhost:8887', method='POST', uri='/user/login', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:8887', 'Connection': 'keep-alive', 'Content-Length': '36', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'Origin': 'http://localhost:8887', 'X-Requested-With': 'XMLHttpRequest', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Referer': 'http://localhost:8887/', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'Phpstorm-f0a15574=359b667f-388b-4d7f-8ac6-3a6aab9389f5; Pycharm-df13e51b=fd99ae70-7d93-4d2d-9f25-d9a52adba1ad; referrer_id="2|1:0|10:1510565697|11:referrer_id|4:MA==|629f439c4f0699bd9ef05f9f8de7e175edc8878b7a1ebd34e58258549e62726f"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'wx_user.bonus_ratio' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1511, in _execute
+    result = yield result
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1055, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/types.py", line 248, in wrapped
+    coro = func(*args, **kwargs)
+  File "WebServer.py", line 201, in post
+    user = UserHandler.login(login_name, login_pass)
+  File "/Users/lu/PycharmProjects/wxpm-server/Commands/UserHandler.py", line 27, in login
+    User.deleted==0).one_or_none()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2784, in one_or_none
+    ret = list(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2855, in __iter__
+    return self._execute_and_instances(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2878, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+sqlalchemy.exc.ProgrammingError: (mysql.connector.errors.ProgrammingError) 1054 (42S22): Unknown column 'wx_user.bonus_ratio' in 'field list' [SQL: 'SELECT wx_user.id AS wx_user_id, wx_user.login_name AS wx_user_login_name, wx_user.login_pass AS wx_user_login_pass, wx_user.display_name AS wx_user_display_name, wx_user.real_name AS wx_user_real_name, wx_user.id_no AS wx_user_id_no, wx_user.mobile AS wx_user_mobile, wx_user.status AS wx_user_status, wx_user.section_no AS wx_user_section_no, wx_user.referrer_id AS wx_user_referrer_id, wx_user.bonus_ratio AS wx_user_bonus_ratio, wx_user.deleted AS wx_user_deleted, wx_user.created_at AS wx_user_created_at, wx_user.last_updated AS wx_user_last_updated \nFROM wx_user \nWHERE wx_user.login_name = %(login_name_1)s AND wx_user.login_pass = %(login_pass_1)s AND wx_user.deleted = %(deleted_1)s'] [parameters: {'login_name_1': 'luzhang', 'login_pass_1': 'd5a99288b270b6c1989975fdb352425913c45e1640b35473ef9370fc', 'deleted_1': 0}]
+2017-11-13 18:47:31 - tornado.application - ERROR - Uncaught exception POST /product/buy (::1)
+HTTPServerRequest(protocol='http', host='localhost:8887', method='POST', uri='/product/buy', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:8887', 'Connection': 'keep-alive', 'Content-Length': '15', 'Accept': 'text/html, */*; q=0.01', 'Origin': 'http://localhost:8887', 'X-Requested-With': 'XMLHttpRequest', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Referer': 'http://localhost:8887/', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'Phpstorm-f0a15574=359b667f-388b-4d7f-8ac6-3a6aab9389f5; Pycharm-df13e51b=fd99ae70-7d93-4d2d-9f25-d9a52adba1ad; referrer_id="2|1:0|10:1510569880|11:referrer_id|4:MA==|cba6113cfe4212431f6c57013cd2b9c072c73c1bd0dca086c94a043dc28420a3"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1509, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "WebServer.py", line 640, in post
+    pinfo = ProductHandler.get_app_product_info(p_no)#contain current_price
+  File "/Users/lu/PycharmProjects/wxpm-server/Commands/ProductHandler.py", line 201, in get_app_product_info
+    raise ValueError
+ValueError
+2017-11-13 18:47:34 - tornado.application - ERROR - Uncaught exception POST /product/sale (::1)
+HTTPServerRequest(protocol='http', host='localhost:8887', method='POST', uri='/product/sale', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:8887', 'Connection': 'keep-alive', 'Content-Length': '15', 'Accept': 'text/html, */*; q=0.01', 'Origin': 'http://localhost:8887', 'X-Requested-With': 'XMLHttpRequest', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Referer': 'http://localhost:8887/', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'Phpstorm-f0a15574=359b667f-388b-4d7f-8ac6-3a6aab9389f5; Pycharm-df13e51b=fd99ae70-7d93-4d2d-9f25-d9a52adba1ad; referrer_id="2|1:0|10:1510569880|11:referrer_id|4:MA==|cba6113cfe4212431f6c57013cd2b9c072c73c1bd0dca086c94a043dc28420a3"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1509, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "WebServer.py", line 667, in post
+    pinfo = ProductHandler.get_app_product_info(p_no)
+  File "/Users/lu/PycharmProjects/wxpm-server/Commands/ProductHandler.py", line 201, in get_app_product_info
+    raise ValueError
+ValueError
+2017-11-13 18:47:37 - tornado.application - ERROR - Uncaught exception POST /product/sale (::1)
+HTTPServerRequest(protocol='http', host='localhost:8887', method='POST', uri='/product/sale', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:8887', 'Connection': 'keep-alive', 'Content-Length': '15', 'Accept': 'text/html, */*; q=0.01', 'Origin': 'http://localhost:8887', 'X-Requested-With': 'XMLHttpRequest', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Referer': 'http://localhost:8887/', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'Phpstorm-f0a15574=359b667f-388b-4d7f-8ac6-3a6aab9389f5; Pycharm-df13e51b=fd99ae70-7d93-4d2d-9f25-d9a52adba1ad; referrer_id="2|1:0|10:1510569880|11:referrer_id|4:MA==|cba6113cfe4212431f6c57013cd2b9c072c73c1bd0dca086c94a043dc28420a3"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1509, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "WebServer.py", line 667, in post
+    pinfo = ProductHandler.get_app_product_info(p_no)
+  File "/Users/lu/PycharmProjects/wxpm-server/Commands/ProductHandler.py", line 201, in get_app_product_info
+    raise ValueError
+ValueError
+2017-11-13 18:47:37 - tornado.application - ERROR - Uncaught exception POST /product/buy (::1)
+HTTPServerRequest(protocol='http', host='localhost:8887', method='POST', uri='/product/buy', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:8887', 'Connection': 'keep-alive', 'Content-Length': '15', 'Accept': 'text/html, */*; q=0.01', 'Origin': 'http://localhost:8887', 'X-Requested-With': 'XMLHttpRequest', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Referer': 'http://localhost:8887/', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'Phpstorm-f0a15574=359b667f-388b-4d7f-8ac6-3a6aab9389f5; Pycharm-df13e51b=fd99ae70-7d93-4d2d-9f25-d9a52adba1ad; referrer_id="2|1:0|10:1510569880|11:referrer_id|4:MA==|cba6113cfe4212431f6c57013cd2b9c072c73c1bd0dca086c94a043dc28420a3"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1509, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "WebServer.py", line 640, in post
+    pinfo = ProductHandler.get_app_product_info(p_no)#contain current_price
+  File "/Users/lu/PycharmProjects/wxpm-server/Commands/ProductHandler.py", line 201, in get_app_product_info
+    raise ValueError
+ValueError
+2017-11-13 18:47:38 - tornado.application - ERROR - Uncaught exception POST /product/detail (::1)
+HTTPServerRequest(protocol='http', host='localhost:8887', method='POST', uri='/product/detail', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:8887', 'Connection': 'keep-alive', 'Content-Length': '5', 'Accept': 'text/html, */*; q=0.01', 'Origin': 'http://localhost:8887', 'X-Requested-With': 'XMLHttpRequest', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Referer': 'http://localhost:8887/', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'Phpstorm-f0a15574=359b667f-388b-4d7f-8ac6-3a6aab9389f5; Pycharm-df13e51b=fd99ae70-7d93-4d2d-9f25-d9a52adba1ad; referrer_id="2|1:0|10:1510569880|11:referrer_id|4:MA==|cba6113cfe4212431f6c57013cd2b9c072c73c1bd0dca086c94a043dc28420a3"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1509, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "WebServer.py", line 574, in post
+    info = ProductHandler.get_app_product_info(p_no)
+  File "/Users/lu/PycharmProjects/wxpm-server/Commands/ProductHandler.py", line 201, in get_app_product_info
+    raise ValueError
+ValueError
+2017-11-15 10:19:08 - tornado.application - ERROR - Uncaught exception GET /api/transaction/products (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8887', method='GET', uri='/api/transaction/products', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Host': '127.0.0.1:8887', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Upgrade-Insecure-Requests': '1', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'ECS[visit_times]=10; ECS[history]=72%2C47%2C70; referrer_id="2|1:0|10:1510712196|11:referrer_id|4:MA==|4eb2cf245e79aec5f01d2f39e485ccfe9be8a42a8fc732e4dd9e8bfff3d5eab7"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1511, in _execute
+    result = yield result
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1055, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1143, in handle_yield
+    self.future = convert_yielded(yielded)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/functools.py", line 803, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1283, in convert_yielded
+    raise BadYieldError("yielded unknown object %r" % (yielded,))
+tornado.gen.BadYieldError: yielded unknown object '123'
+2017-11-15 10:19:26 - tornado.application - ERROR - Uncaught exception GET /api/transaction/products (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8887', method='GET', uri='/api/transaction/products', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Host': '127.0.0.1:8887', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Upgrade-Insecure-Requests': '1', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'ECS[visit_times]=10; ECS[history]=72%2C47%2C70; referrer_id="2|1:0|10:1510712196|11:referrer_id|4:MA==|4eb2cf245e79aec5f01d2f39e485ccfe9be8a42a8fc732e4dd9e8bfff3d5eab7"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1511, in _execute
+    result = yield result
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1055, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1143, in handle_yield
+    self.future = convert_yielded(yielded)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/functools.py", line 803, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1277, in convert_yielded
+    return multi(yielded)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 721, in multi
+    return multi_future(children, quiet_exceptions=quiet_exceptions)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 814, in multi_future
+    children = list(map(convert_yielded, children))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/functools.py", line 803, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1283, in convert_yielded
+    raise BadYieldError("yielded unknown object %r" % (yielded,))
+tornado.gen.BadYieldError: yielded unknown object 123
+2017-11-15 10:20:01 - tornado.application - ERROR - Uncaught exception GET /api/transaction/products (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8887', method='GET', uri='/api/transaction/products', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Host': '127.0.0.1:8887', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Upgrade-Insecure-Requests': '1', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'ECS[visit_times]=10; ECS[history]=72%2C47%2C70; referrer_id="2|1:0|10:1510712196|11:referrer_id|4:MA==|4eb2cf245e79aec5f01d2f39e485ccfe9be8a42a8fc732e4dd9e8bfff3d5eab7"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1511, in _execute
+    result = yield result
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1055, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1143, in handle_yield
+    self.future = convert_yielded(yielded)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/functools.py", line 803, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1277, in convert_yielded
+    return multi(yielded)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 721, in multi
+    return multi_future(children, quiet_exceptions=quiet_exceptions)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 814, in multi_future
+    children = list(map(convert_yielded, children))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/functools.py", line 803, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1283, in convert_yielded
+    raise BadYieldError("yielded unknown object %r" % (yielded,))
+tornado.gen.BadYieldError: yielded unknown object 123
+2017-11-15 10:21:01 - tornado.application - ERROR - Uncaught exception GET /api/transaction/products (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8887', method='GET', uri='/api/transaction/products', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Host': '127.0.0.1:8887', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Upgrade-Insecure-Requests': '1', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'ECS[visit_times]=10; ECS[history]=72%2C47%2C70; referrer_id="2|1:0|10:1510712196|11:referrer_id|4:MA==|4eb2cf245e79aec5f01d2f39e485ccfe9be8a42a8fc732e4dd9e8bfff3d5eab7"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1511, in _execute
+    result = yield result
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1055, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1143, in handle_yield
+    self.future = convert_yielded(yielded)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/functools.py", line 803, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1277, in convert_yielded
+    return multi(yielded)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 721, in multi
+    return multi_future(children, quiet_exceptions=quiet_exceptions)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 814, in multi_future
+    children = list(map(convert_yielded, children))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/functools.py", line 803, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1283, in convert_yielded
+    raise BadYieldError("yielded unknown object %r" % (yielded,))
+tornado.gen.BadYieldError: yielded unknown object 123
+2017-11-15 10:21:04 - tornado.application - ERROR - Uncaught exception GET /api/transaction/products (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8887', method='GET', uri='/api/transaction/products', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Host': '127.0.0.1:8887', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Upgrade-Insecure-Requests': '1', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'ECS[visit_times]=10; ECS[history]=72%2C47%2C70; referrer_id="2|1:0|10:1510712196|11:referrer_id|4:MA==|4eb2cf245e79aec5f01d2f39e485ccfe9be8a42a8fc732e4dd9e8bfff3d5eab7"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1511, in _execute
+    result = yield result
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1055, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1143, in handle_yield
+    self.future = convert_yielded(yielded)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/functools.py", line 803, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1277, in convert_yielded
+    return multi(yielded)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 721, in multi
+    return multi_future(children, quiet_exceptions=quiet_exceptions)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 814, in multi_future
+    children = list(map(convert_yielded, children))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/functools.py", line 803, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1283, in convert_yielded
+    raise BadYieldError("yielded unknown object %r" % (yielded,))
+tornado.gen.BadYieldError: yielded unknown object 123
+2017-11-15 10:26:45 - tornado.application - ERROR - Uncaught exception GET /api/transaction/products (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8887', method='GET', uri='/api/transaction/products', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Host': '127.0.0.1:8887', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Upgrade-Insecure-Requests': '1', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'ECS[visit_times]=10; ECS[history]=72%2C47%2C70; referrer_id="2|1:0|10:1510712474|11:referrer_id|4:MA==|d72eb1d33a99ab7cb84712a0ae25b23adb60b234476bc25654407a92714be167"', 'If-None-Match': '"7e4613ac8615325d8e6b45510804950dc5521c0e"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1509, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "WebServer.py", line 788, in get
+    self.write(json.JSONEncoder().encode(products))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Product' is not JSON serializable
+2017-11-15 10:37:19 - tornado.application - ERROR - Uncaught exception GET /api/transaction/products (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8887', method='GET', uri='/api/transaction/products', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Host': '127.0.0.1:8887', 'Connection': 'keep-alive', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Upgrade-Insecure-Requests': '1', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'ECS[visit_times]=10; ECS[history]=72%2C47%2C70; referrer_id="2|1:0|10:1510713195|11:referrer_id|4:MA==|86fb9234806568fa83025427f5ccbd413a1bc7286a75651c988418771c745a1d"'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1509, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "WebServer.py", line 791, in get
+    self.write(json.JSONEncoder().encode(result))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'date' is not JSON serializable
+2017-11-16 16:24:41 - tornado.application - ERROR - Uncaught exception GET /b2c/product/detail?id=1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8887', method='GET', uri='/b2c/product/detail?id=1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Host': '127.0.0.1:8887', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36', 'Upgrade-Insecure-Requests': '1', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,nl;q=0.4', 'Cookie': 'ECS[visit_times]=10; ECS[history]=72%2C47%2C70; referrer_id="2|1:0|10:1510818493|11:referrer_id|4:MA==|21fe28f67a86a2280519dde819bdee8178de995ab53a2a383272113d5c3bf21e"; XSRF-TOKEN=eyJpdiI6ImpsRUxRYUtKUEIwbEtZUzhrMWdSeXc9PSIsInZhbHVlIjoidjlnaytyQWt5T0h0NUhCaGROWkhIOERHM3VJbUZZdHc4dWFQUFA5SEZEUlRYaU1CSStXekRKeDQ1a3J2THBcL3lMUm5wMXZINFlsczZtZFAzYmdcLytSUT09IiwibWFjIjoiNTRmNmMzNzNjOTI2MzU3MWJjZDJlZmEwOGY3MDFjMzYwZWY3ZjhkMTBiMmRiMDlhNzBiMDZhNzZmODU3NmZhNSJ9; laravel_session=eyJpdiI6Ilk2a1ZLckNoNkR3XC96VjQrelVNd1Z3PT0iLCJ2YWx1ZSI6Imh1VmtuakpTdFJER2lqUUswZHFNYjR5Z3pkaGpwOGFTRFBaeTZGVCttWWZKK2xzdzYxc0J6aWpHOFBrT0h1T3ZidlZWbGNoenhuN0wyNlwvdTVLNDJOZz09IiwibWFjIjoiOWYyNzRkM2I0NmI0OTMyOWI3NDcyOWFkM2VkNDkwZDk2M2QzYjc2MzliNWY1NjgyOWMxNmFjYjNjM2IzZDNlYSJ9'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1511, in _execute
+    result = yield result
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1055, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1143, in handle_yield
+    self.future = convert_yielded(yielded)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/functools.py", line 803, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/gen.py", line 1283, in convert_yielded
+    raise BadYieldError("yielded unknown object %r" % (yielded,))
+tornado.gen.BadYieldError: yielded unknown object '1'
+2017-11-27 17:42:13 - tornado.general - WARNING - 400 POST /user/ajax_login (::1): Missing argument login_name
+2017-11-27 17:42:16 - tornado.general - WARNING - 400 POST /user/ajax_login (::1): Missing argument login_name
+2017-11-27 17:44:33 - tornado.general - WARNING - 400 POST /user/ajax_login (::1): Missing argument login_name
+2017-11-27 17:44:34 - tornado.general - WARNING - 400 POST /user/ajax_login (::1): Missing argument login_name
+2017-11-27 17:47:15 - tornado.general - WARNING - 400 POST /user/ajax_login (::1): Missing argument login_name
+2017-11-27 17:47:16 - tornado.general - WARNING - 400 POST /user/ajax_login (::1): Missing argument login_name
+2017-11-27 17:47:18 - tornado.general - WARNING - 400 POST /user/ajax_login (::1): Missing argument login_name
+2017-11-27 17:57:15 - tornado.general - WARNING - 400 POST /user/ajax_login (::1): Missing argument login_name
+2017-11-27 17:57:17 - tornado.general - WARNING - 400 POST /user/ajax_login (::1): Missing argument login_name
+2017-11-27 17:57:17 - tornado.general - WARNING - 400 POST /user/ajax_login (::1): Missing argument login_name
+2017-11-30 09:44:27 - tornado.general - WARNING - 400 POST /url/sendcode (127.0.0.1): Missing argument mobile
+2017-11-30 09:51:57 - tornado.general - WARNING - 400 POST /url/sendcode (127.0.0.1): Missing argument mobile
+2017-11-30 09:52:04 - tornado.general - WARNING - 400 POST /url/sendcode (127.0.0.1): Missing argument mobile
+2017-11-30 09:53:20 - tornado.general - WARNING - 400 POST /url/sendcode (127.0.0.1): Missing argument mobile
+2017-11-30 10:17:15 - tornado.general - WARNING - 400 POST /url/identity_check (127.0.0.1): Missing argument new_password
+2017-11-30 10:17:16 - tornado.general - WARNING - 400 POST /url/identity_check (127.0.0.1): Missing argument new_password
+2017-11-30 10:17:17 - tornado.general - WARNING - 400 POST /url/identity_check (127.0.0.1): Missing argument new_password
+2017-11-30 10:23:03 - tornado.general - WARNING - 400 POST /url/identity_check (127.0.0.1): Missing argument new_password
+2017-11-30 10:23:10 - tornado.general - WARNING - 400 POST /url/identity_check (127.0.0.1): Missing argument new_password
+2017-11-30 10:23:10 - tornado.general - WARNING - 400 POST /url/identity_check (127.0.0.1): Missing argument new_password
+2017-11-30 10:23:13 - tornado.general - WARNING - 400 POST /url/identity_check (127.0.0.1): Missing argument new_password
+2017-11-30 10:23:43 - tornado.general - WARNING - 400 POST /url/identity_check (127.0.0.1): Missing argument new_password
+2017-11-30 10:32:01 - tornado.general - WARNING - 400 POST /url/identity_check (127.0.0.1): Missing argument new_password
+2017-11-30 10:34:42 - tornado.general - WARNING - 400 POST /url/identity_check (127.0.0.1): Missing argument new_password
+2017-11-30 10:34:47 - tornado.general - WARNING - 400 POST /url/identity_check (127.0.0.1): Missing argument new_password
+2017-11-30 10:34:48 - tornado.general - WARNING - 400 POST /url/identity_check (127.0.0.1): Missing argument new_password
+2017-11-30 10:40:07 - tornado.general - WARNING - 400 POST /url/identity_check (127.0.0.1): Missing argument confirm_password
+2017-11-30 10:40:11 - tornado.general - WARNING - 400 POST /url/identity_check (127.0.0.1): Missing argument confirm_password
+2017-11-30 10:43:35 - tornado.general - WARNING - 400 POST /url/identity_check (127.0.0.1): Missing argument confirmpassword
+2017-11-30 10:44:07 - tornado.general - WARNING - 400 POST /url/identity_check (127.0.0.1): Missing argument confirmpassword
